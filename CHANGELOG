@@ -1,0 +1,10 @@
+v0.22 - New Option 'u' - force unicast dhcp replay .
+
+v0.21  -  New options 'h' - client hardware address / 's' server IP / 'z' server hardware address 
+       - option 'x' - client IP address
+
+v0.2  - New option '-v' - verbose output. 
+      - For wait time 0 , we don't care about answers - don't fork pcap listener
+      - some minor fixes
+  
+v0.1 - initial version, 

@@ -1,0 +1,74 @@
+=head1 NAME
+
+B<dhcping-ng> - send a DHCP request directly to network interface and see responses
+from dhcp-servers in your lan.
+
+
+=head1 SYNOPSIS
+
+B<dhcping-ng>
+[B<-i> I<network interface>]
+[B<-w> I<waittime between packets>]
+[B<-v> I<verbose mode>]
+[B<-u> I<force unicast dhcp replay>]
+[B<-c> I<send count packets>]
+[B<-r> I<use random ethernet address>]
+[B<-x> I<client IP address >]
+[B<-h> I<client hardware address >]
+[B<-s> I<server IP address >]
+[B<-z> I<server hardware address >]
+=head1 DESCRIPTION
+
+This commands allows the system administrator to send dhcp request packets , 
+directly to network interface and see reponses from dhcp-servers. 
+It can be used for detecting rogue dhcp-server in switched lan networks.
+
+Options are :
+
+=over
+
+=item B<-i>
+Network interface to use 
+
+=item B<-w>
+Wait N seconds between sending packets , when wait time is 0 we are sending packet 
+as fast as we can and we don't care about answers.
+
+
+=item B<-v>
+
+Verbose, mode 
+
+=item B<-u>
+
+Force unicast dhcp replay. Don't set BROADCAST bit in dhcp flags . 
+Seting broadcast bit in DHCPDISCOVER packet will force server to replay to server via unicast replay, mostly
+use for broken clients that can't recive unicast answer and have chicken and egg problem ;>
+
+=item B<-c> 
+
+How many dhcp-request we want to send, can't be zero
+
+=item B<-r>
+Use random mac-adress in ethernet and dhcp headers . 
+
+=item B<-x> 
+Request this IP address. Note that this is also the IP address the answer will be sent to. When parameter 
+is omited , IP from sending interface is used ( empty -x option can be used as last option)
+
+=item B<-h> 
+Use this hardware-address in the DHCP request, and Ethernet header.
+
+=item B<-s> 
+Send the DHCP packet to this IP address, It needs also server mac-address '-z' option. 
+
+=item B<-z> 
+Use this hardware-address as destination addres in Ethernet header. 
+
+=head1 AUTHOR
+
+Piotr Chytla <pch@packetconsulting.pl>
+
+=head1 SEE ALSO
+
+dhcpd(8), dhcping(8)
