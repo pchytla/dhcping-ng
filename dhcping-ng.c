@@ -23,11 +23,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <pcap.h>
-#if __FreeBSD__
-#include <libnet11/libnet.h>
-#else
 #include <libnet.h>
-#endif
 #include <syslog.h>
 #include <signal.h>
 #include <signal.h>

@@ -16,8 +16,7 @@ Installing
   - For Linux 
          make
   - For FreeBSD
-         edit Makefile uncomment INCDIR / LIBDIR
-         make
+         gmake
 
 Author
 ==========

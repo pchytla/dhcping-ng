@@ -2,9 +2,17 @@ CC = gcc
 POD2MAN = pod2man
 GZIP = gzip
 CFLAGS = -g -Wall 
-#For FreeBSD uncomment this
-INCDIR    = -I/usr/local/include
-LIBDIR    = -I/usr/local/lib/libnet11
+
+ifndef OS
+  OS := $(shell uname)
+endif
+
+
+ifeq "$(OS)" "FreeBSD"
+        INCDIR    := -I/usr/local/include/libnet11
+        LIBDIR    := -L/usr/local/lib/libnet11
+endif
+
 LDFLAGS = -lpcap -lnet
 
 all:
